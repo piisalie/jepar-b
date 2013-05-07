@@ -1,0 +1,17 @@
+Jepar-b
+
+category - can edit/add
+answer   - show when click on category
+question - give after click
+rewards  - set number
+
+board class
+  add_category(category) # 6 categories allowed
+  get_categories         # should return all categories
+
+
+category class(name)
+  #add_answer(answer,value)
+  each category can only have 5 answers each of a different value
+
+answer class (question, answer)
