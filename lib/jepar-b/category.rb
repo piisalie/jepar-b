@@ -14,5 +14,11 @@ module JeparB
     def remove_answer(value)
       @answers.delete(value)
     end
+
+    def list_answers
+      @answers.each do |value, answer|
+        yield [answer, value]
+      end
+    end       
   end
 end

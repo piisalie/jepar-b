@@ -8,7 +8,7 @@ describe JeparB::Category do
     expect(category.name).to eq("category name")
   end
 
-  it "can add and store answers" do
+  it "can add and store answers keyed by value" do
     category.add_answer("some answer", "value")
     expect(category.answers["value"]).to eq("some answer")
   end
@@ -18,5 +18,10 @@ describe JeparB::Category do
     category.remove_answer("value")
     expect(category.answers["value"]).to be_nil
   end
-    
+
+  it "can list answers" do
+    category.add_answer("some answer", "200")
+    category.add_answer("another answer", "400")
+    expect { |b| category.list_answers(&b) }.to yield_successive_args(["some answer", "200"],["another answer", "400"]) 
+  end
 end
