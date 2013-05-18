@@ -25,8 +25,8 @@ module JeparB
       end
     end
 
-    def get_answers_from_category(category)
-      @connection.exec("SELECT value, answer, question FROM answers WHILE LOWER(category) = LOWER($1);", [category]).each do |answer|
+    def get_answers_from_category(category_name)
+      @connection.exec("SELECT value, answer, question FROM answers WHERE LOWER(category) = LOWER($1);", [category_name]).each do |answer|
         yield answer
       end
     end

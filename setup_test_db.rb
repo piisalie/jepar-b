@@ -17,3 +17,8 @@ system("createdb jeparb_test")
   puts category
 end
 
+@db.get_answers_from_category("dinner") do |answer|
+  puts answer
+end
+
+

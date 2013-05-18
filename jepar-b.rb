@@ -2,6 +2,7 @@ require "sinatra"
 require_relative "lib/jepar-b"
 
 get("/") {
+  @categories = JeparB.get_categories
   erb :main
 }
 

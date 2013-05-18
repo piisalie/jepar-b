@@ -1,3 +1,11 @@
 <% @title = "Jepar-B" %>
 
 <h1> Jepar-b </h1>
+
+<table>
+  <tr>
+    <% @categories.each do |category| %>
+      <th><%= category.capitalize %></th>
+    <% end %>
+  </tr>
+</table>
