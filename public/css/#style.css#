@@ -1,0 +1,22 @@
+a
+{
+    color:white;
+}
+body
+{
+    background-color:black;
+}
+table
+{
+    background-color:black;
+}
+th, td
+{
+    border:3px solid black;
+    border-collapse:collapse;
+    height:50px;
+    width:200px;
+    text-align:center;
+    background-color:blue;
+    color:white;    
+}

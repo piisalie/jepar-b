@@ -1,0 +1,16 @@
+<% @title  = "Jepar-B" %>
+
+<table>
+  <tr>
+    <% @categories.each do |category| %>
+    <th><%= category.capitalize %></th>
+    <% end %>
+  </tr>
+  <% @values.each do |value| %>
+  <tr>
+    <% @categories.each do |category| %>
+    <td><a href="/question/<%=category%>/<%=value%>"><%= value %></a></td>
+    <% end %>
+  </tr>
+  <% end %>
+</table>

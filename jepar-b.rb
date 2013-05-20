@@ -3,7 +3,14 @@ require_relative "lib/jepar-b"
 
 get("/") {
   @categories = JeparB.get_categories
-  erb :main
+  @values     = [ "200", "400", "600", "800", "1000"]
+  erb :index
+}
+
+get("/question/:category/:value") {
+  category = params[:category]
+  value    = params[:value]
+  "Question #{category} at #{value}"
 }
 
 get("/admin") {
