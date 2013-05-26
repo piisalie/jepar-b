@@ -30,5 +30,17 @@ module JeparB
         yield answer
       end
     end
+
+    def find_answer(category, value)
+      @connection.exec("SELECT answer FROM answers WHERE category = $1 AND value = $2;", [category, value]).each do |answer|
+        yield answer
+      end
+    end
+
+    def find_question(category, value)
+      @connection.exec("SELECT question FROM answers WHERE category = $1 AND value = $2;", [category, value]).each do |question|
+        yield question
+      end
+    end
   end
 end

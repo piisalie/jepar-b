@@ -10,9 +10,6 @@ board class
   get_categories         # should return all categories
 
 
-category class(name)
-  #add_answer(answer,value)
-  each category can only have 5 answers each of a different value
+answer class (question, answer, category value)
 
-answer class (question, answer)
-
+Maybe something to display? 

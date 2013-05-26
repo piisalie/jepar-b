@@ -7,10 +7,18 @@ get("/") {
   erb :index
 }
 
+get("/answer/:category/:value") {
+  @category = params[:category]
+  @value    = params[:value]
+  @answer   = JeparB.get_answer(@category, @value)
+  erb :answer
+}
+
 get("/question/:category/:value") {
-  category = params[:category]
-  value    = params[:value]
-  "Question #{category} at #{value}"
+  @category = params[:category]
+  @value    = params[:value]
+  @question = JeparB.get_question(@category, @value)
+  erb :question
 }
 
 get("/admin") {
