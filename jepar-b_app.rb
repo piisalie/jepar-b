@@ -1,24 +1,31 @@
 require "sinatra"
 require_relative "lib/jepar-b"
 
+enable :sessions
+
 get("/") {
-  @categories = JeparB.get_categories
-  @values     = [ "200", "400", "600", "800", "1000"]
+  @board = session[:board] ||= JeparB.setup_board
   erb :index
 }
 
 get("/answer/:category/:value") {
   @category = params[:category]
   @value    = params[:value]
-  @answer   = JeparB.get_answer(@category, @value)
+  @answer   = session[:board][@category][@value].show_answer
   erb :answer
 }
 
 get("/question/:category/:value") {
   @category = params[:category]
   @value    = params[:value]
-  @question = JeparB.get_question(@category, @value)
+  @question = session[:board][@category][@value].show_question
+  session[:board].remove_answer(@category, @value)
   erb :question
+}
+
+get("/clear") {
+  session.clear
+  redirect to('/')
 }
 
 get("/admin") {

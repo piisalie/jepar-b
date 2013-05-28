@@ -11,14 +11,6 @@ module JeparB
       @connection.exec("INSERT INTO answers (category, value, answer, question) VALUES ($1, $2, $3, $4);", [category, value, answer, question])
     end
 
-    def get_answers
-      answers = { }
-      @connection.exec("SELECT * FROM answers;").each do |row|
-        answers[row["answer"]] = row["question"]
-      end
-      answers
-    end
-
     def get_categories
       @connection.exec("SELECT LOWER(category) FROM answers GROUP BY LOWER(category);").each do |row|
         yield row["lower"]
@@ -28,18 +20,6 @@ module JeparB
     def get_answers_from_category(category_name)
       @connection.exec("SELECT value, answer, question FROM answers WHERE LOWER(category) = LOWER($1);", [category_name]).each do |answer|
         yield answer
-      end
-    end
-
-    def find_answer(category, value)
-      @connection.exec("SELECT answer FROM answers WHERE LOWER(category) = LOWER($1) AND value = $2;", [category, value]).each do |answer|
-        yield answer
-      end
-    end
-
-    def find_question(category, value)
-      @connection.exec("SELECT question FROM answers WHERE LOWER(category) = LOWER($1) AND value = $2;", [category, value]).each do |question|
-        yield question
       end
     end
   end

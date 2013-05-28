@@ -1,19 +1,26 @@
 <% @title  = "Jepar-B" %>
+<% @values = ["200", "400", "600", "800", "1000"] %>
 
 <table>
 
   <tr>
-    <% @categories.each do |category| %>
+    <% @board.list_categories.each do |category| %>
     <th><%= category.capitalize %></th>
     <% end %>
   </tr>
   
   <% @values.each do |value| %>
-  <tr>
-    <% @categories.each do |category| %>
-    <td><a href="/answer/<%=category%>/<%=value%>"><%= value %></a></td>
-    <% end %>
-  </tr>
+    <tr>
+      <% @board.list_categories.each do |category| %>
+        <% if @board[category][value] %>
+          <td><a href="/answer/<%=category%>/<%=value%>"><%= value %></a></td>
+        <% else %>
+          <td></td>
+        <% end %>
+      <% end %>
+    </tr>
   <% end %>
   
 </table>
+
+<a href="/clear">Reset</a>

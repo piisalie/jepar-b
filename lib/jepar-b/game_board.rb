@@ -19,5 +19,10 @@ module JeparB
     def add_answer(category_name, value, answer)
       @categories[category_name][value] = answer
     end
+
+    def remove_answer(category_name, value)
+      @categories[category_name].delete(value)
+    end
+
   end
 end
