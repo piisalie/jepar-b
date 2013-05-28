@@ -23,12 +23,13 @@ get("/question/:category/:value") {
   erb :question
 }
 
-get("/clear") {
+get("/reset") {
   session.clear
   redirect to('/')
 }
 
 get("/admin") {
+  @existing_categories = session[:board].list_categories
   erb :admin
 }
 

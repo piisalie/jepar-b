@@ -1,37 +1,44 @@
 <% @title = "Admin Page" %>
 
 <form action="/add_question" method="POST">
-  <table>
-    <tr>
-      <td>
-        <label for="category">Category:</label>
-      <td>
-        <input type="text" name="category" id="category">
-    </tr>
+<table text-align="center">
+  <tr>
+  <td>Existing Categories:
+  <td><%= @existing_categories %>
+  </tr>
 
-    <tr>
-      <td>
-        <label for="value">Value:</label>
-      <td>
-        <input type="text" name="value" id="value">
-    </tr>
+  <tr>
+  <td><label for="category">Category:</label>
+  <td><input type="text" name="category" id="category">
+  </tr>
 
-    <tr>
-      <td>
-        <label for="answer">Answer:</label>
-      <td>
-        <input type="text" name="answer" size="50" id="answer"><br>
-    </tr>
+  <tr>
+  <td><label for="value">Value:</label>
+  <td><select name="value" id="value">
+      <option value="200">200</option>
+      <option value="400">400</option>
+      <option value="600">600</option>
+      <option value="800">800</option>
+      <option value="1000">1000</option>
+      </select>
+  </tr>
 
-    <tr>
-      <td>
-        <label for="question">Question:</label>
-      <td>
-        <input type="text" name="question" size="50" id="question"><br>
-    </tr>
+  <tr>
+  <td><label for="answer">Answer:</label>
+  <td><input type="text" name="answer" size="30" id="answer">
+  </tr>
 
-    <tr>
-      <td><input type="submit" value="Add">
-    </tr>
+  <tr>
+  <td><label for="question">Question:</label>
+  <td><input type="text" name="question" size="30" id="question">
+  </tr>
+  
+  <tr>
+  <td>
+  <td><input type="submit" value="Add">
   </table>
 </form>
+
+<footer>
+<a href="/reset">View Board</a>
+</footer>
