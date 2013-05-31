@@ -1,18 +1,20 @@
 <% @title = "Admin Page" %>
 
 <form action="/add_question" method="POST">
-<table text-align="center">
-  <tr>
+<table>
+  <tr class="admin">
   <td>Existing Categories:
-  <td><%= @existing_categories %>
+  <td><% @existing_categories.each do |category| %>
+  <%= category.capitalize %>
+  <% end %>
   </tr>
 
-  <tr>
+  <tr class="admin">
   <td><label for="category">Category:</label>
-  <td><input type="text" name="category" id="category">
+  <td><input type="text" name="category" id="category" required>
   </tr>
 
-  <tr>
+  <tr class="admin">
   <td><label for="value">Value:</label>
   <td><select name="value" id="value">
       <option value="200">200</option>
@@ -23,17 +25,17 @@
       </select>
   </tr>
 
-  <tr>
+  <tr class="admin">
   <td><label for="answer">Answer:</label>
-  <td><input type="text" name="answer" size="30" id="answer">
+  <td><input type="text" name="answer" size="30" id="answer" required>
   </tr>
 
-  <tr>
+  <tr class="admin">
   <td><label for="question">Question:</label>
-  <td><input type="text" name="question" size="30" id="question">
+  <td><input type="text" name="question" size="30" id="question" required>
   </tr>
   
-  <tr>
+  <tr class="admin">
   <td>
   <td><input type="submit" value="Add">
   </table>

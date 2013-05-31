@@ -3,6 +3,13 @@ require_relative "lib/jepar-b"
 
 enable :sessions
 
+helpers do
+  def refresh_board
+    session.clear
+    session[:board] = JeparB.setup_board
+  end
+end
+
 get("/") {
   @board = session[:board] ||= JeparB.setup_board
   erb :index
@@ -36,5 +43,6 @@ get("/admin") {
 post("/add_question") {
   db = JeparB::DBManager.new("jeparb_test")
   db.add(params[:category], params[:value], params[:answer], params[:question])
+  refresh_board
   redirect to("/admin")
 }

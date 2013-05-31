@@ -1,7 +1,11 @@
 <% @title = "Answer" %>
 
-<h1>
-  <%= @answer %>
-</h1>
+<table class="game_board">
+  <th class="display_answer">
+    <h1>
+      <%= @answer %>
+    </h1>
+  </th>
+</table>
 
 <a href="/question/<%=@category%>/<%=@value%>">Show Question</a>

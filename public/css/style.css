@@ -2,22 +2,33 @@ a
 {
     color:white;
 }
+
 body
 {
     background-color:black;
     color:white;
-    text-align:center;
 }
-table
+
+h1
+{
+    font-size:40px;
+}
+
+table.game_board
 {
     background-color:black;
+    width:99%;
+    height:99%;
+    margin-left: auto;
+    margin-right: auto;
 }
-th, td
+
+th.game_board, td.game_board
 {
     border:1px solid grey;
-    height:50px;
-    width:200px;
     text-align:center;
+    width:20%;
+    height:100px;
     background-color:blue;
     color:white;
     -moz-border-radius:10px;
@@ -25,6 +36,20 @@ th, td
     -khtml-border-radius:10px;
     border-radius:10px;
 }
+
+th.display_answer
+{
+    text-align:center;
+    width:100%;
+    height:600px;
+    background-color:blue;
+    color:white;
+    -moz-border-radius:10px;
+    -webkit-border-radius:10px;
+    -khtml-border-radius:10px;
+    border-radius:10px;    
+}
+
 footer
 {
     text-align:left;
